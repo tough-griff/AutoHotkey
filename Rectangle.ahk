@@ -1,4 +1,5 @@
 ﻿#Requires AutoHotkey v2.0
+#SingleInstance Force
 
 SIZE_INCREMENT := 30
 MIN_WINDOW_WIDTH := 0.25
