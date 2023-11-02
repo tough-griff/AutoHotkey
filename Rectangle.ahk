@@ -28,57 +28,57 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 ; Left Half
 ^#Left:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left, top, w // 2, h, "A")
+    WinRestore()
+    WinMove(left, top, w // 2, h)
 }
 
 ; Right Half
 ^#Right:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left + w // 2, top, w // 2, h, "A")
+    WinRestore()
+    WinMove(left + w // 2, top, w // 2, h)
 }
 
 ; Top Half
 ^#Up:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left, top, w, h // 2, "A")
+    WinRestore()
+    WinMove(left, top, w, h // 2)
 }
 
 ; Bottom Half
 ^#Down:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left, top + h // 2, w, h // 2, "A")
+    WinRestore()
+    WinMove(left, top + h // 2, w, h // 2)
 }
 
 ; Top Left
 ^#U:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left, top, w // 2, h // 2, "A")
+    WinRestore()
+    WinMove(left, top, w // 2, h // 2)
 }
 
 ; Top Right
 ^#I:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left + w // 2, top, w // 2, h // 2, "A")
+    WinRestore()
+    WinMove(left + w // 2, top, w // 2, h // 2)
 }
 
 ; Bottom Left
 ^#J:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left, top + h // 2, w // 2, h // 2, "A")
+    WinRestore()
+    WinMove(left, top + h // 2, w // 2, h // 2)
 }
 
 ; Bottom Right
 ^#K:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
-    WinRestore("A")
-    WinMove(left + w // 2, top + h // 2, w // 2, h // 2, "A")
+    WinRestore()
+    WinMove(left + w // 2, top + h // 2, w // 2, h // 2)
 }
 
 ; Maximize
@@ -87,13 +87,13 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 ; Maximize Height
 ^#+Up:: {
     GetMonitorInfo(, &top, , , , &h, "A")
-    WinMove(, top, , h, "A")
+    WinMove(, top, , h)
 }
 
 ; Make Smaller
 ^#-:: {
     GetMonitorInfo(&left, &top, , , &monW, &monH, "A")
-    WinGetPos(&x, &y, &winW, &winH, "A")
+    WinGetPos(&x, &y, &winW, &winH)
 
     if (winW - SIZE_INCREMENT > monW * MIN_WINDOW_WIDTH) {
         x := x + SIZE_INCREMENT // 2
@@ -105,29 +105,28 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
         winH := winH - SIZE_INCREMENT
     }
 
-    WinRestore("A")
-    WinMove(Max(left, x), Max(top, y), winW, winH, "A")
+    WinRestore()
+    WinMove(Max(left, x), Max(top, y), winW, winH)
 }
 
 ; Make Larger
 ^#=:: {
     GetMonitorInfo(&left, &top, , , &monW, &monH, "A")
-    WinGetPos(&x, &y, &winW, &winH, "A")
-    WinRestore("A")
+    WinGetPos(&x, &y, &winW, &winH)
+    WinRestore()
     WinMove(
         Max(left, x - SIZE_INCREMENT // 2),
         Max(top, y - SIZE_INCREMENT // 2),
         Min(monW, monW - x + SIZE_INCREMENT // 2, winW + SIZE_INCREMENT),
-        Min(monH, monH - y + SIZE_INCREMENT // 2, winH + SIZE_INCREMENT),
-        "A"
+        Min(monH, monH - y + SIZE_INCREMENT // 2, winH + SIZE_INCREMENT)
     )
 }
 
 ; Center
 ^#C:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &monW, &monH, "A")
-    WinGetPos(, , &winW, &winH, "A")
-    WinMove(left + monW // 2 - winW // 2, top + monH // 2 - winH // 2, , , "A")
+    WinGetPos(, , &winW, &winH)
+    WinMove(left + monW // 2 - winW // 2, top + monH // 2 - winH // 2)
 }
 
 ; Restore
