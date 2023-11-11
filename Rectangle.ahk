@@ -117,8 +117,8 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
     WinMove(
         Max(left, x - SIZE_INCREMENT // 2),
         Max(top, y - SIZE_INCREMENT // 2),
-        Min(monW, monW - x + SIZE_INCREMENT // 2, winW + SIZE_INCREMENT),
-        Min(monH, monH - y + SIZE_INCREMENT // 2, winH + SIZE_INCREMENT)
+        Min(monW, monW - (x - left) + SIZE_INCREMENT // 2, winW + SIZE_INCREMENT),
+        Min(monH, monH - (y - top) + SIZE_INCREMENT // 2, winH + SIZE_INCREMENT)
     )
 }
 
