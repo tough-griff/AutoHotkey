@@ -26,6 +26,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Left Half
+; Ctrl-Win-LeftArrow
 ^#Left:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -33,6 +34,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Right Half
+; Ctrl-Win-RightArrow
 ^#Right:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -40,6 +42,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Top Half
+; Ctrl-Win-UpArrow
 ^#Up:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -47,6 +50,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Bottom Half
+; Ctrl-Win-DownArrow
 ^#Down:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -54,6 +58,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Top Left
+; Ctrl-Win-U
 ^#U:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -61,6 +66,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Top Right
+; Ctrl-Win-I
 ^#I:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -68,6 +74,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Bottom Left
+; Ctrl-Win-J
 ^#J:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -75,6 +82,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Bottom Right
+; Ctrl-Win-K
 ^#K:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &w, &h, "A")
     WinRestore()
@@ -82,15 +90,18 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Maximize
+; Ctrl-Win-Enter
 ^#Enter:: WinMaximize("A")
 
 ; Maximize Height
+; Ctrl-Win-Shift-UpArrow
 ^#+Up:: {
     GetMonitorInfo(, &top, , , , &h, "A")
     WinMove(, top, , h)
 }
 
 ; Make Smaller
+; Ctrl-Win-Minus
 ^#-:: {
     GetMonitorInfo(&left, &top, , , &monW, &monH, "A")
     WinGetPos(&x, &y, &winW, &winH)
@@ -110,6 +121,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Make Larger
+; Ctrl-Win-Equals
 ^#=:: {
     GetMonitorInfo(&left, &top, , , &monW, &monH, "A")
     WinGetPos(&x, &y, &winW, &winH)
@@ -123,6 +135,7 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Center
+; Ctrl-Win-C
 ^#C:: {
     GetMonitorInfo(&left, &top, &right, &bottom, &monW, &monH, "A")
     WinGetPos(, , &winW, &winH)
@@ -130,10 +143,13 @@ GetMonitorInfo(&Left?, &Top?, &Right?, &Bottom?, &Width?, &Height?, WinTitle := 
 }
 
 ; Restore
+; Ctrl-Win-Backspace
 ^#Backspace:: WinRestore("A")
 
 ; Next Display -- leverages existing windows command Shift+Windows+Right
+; Ctrl-Win-Alt-RightArrow
 ^#!Right:: Send("#+{Right}")
 
 ; Previous Display -- leverages existing windows command Shift+Windows+Left
+; Ctrl-Win-Alt-LeftArrow
 ^#!Left:: Send("#+{Left}")
